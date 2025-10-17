@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rise in Boba Shops — Linked Dual View</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Rise in Boba Shops</h1>
+      <p class="tag">Bay Area, California • 2024</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel controls">
+      <div class="control-group">
+        <label>City filter</label>
+        <div id="city-chips" class="chips"></div>
+      </div>
+      <div class="control-group">
+        <label>Measure</label>
+        <div class="toggle" id="measure-toggle">
+          <button data-m="count" class="on">Count</button>
+          <button data-m="percent">Percent</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel boba">
+      <div class="two-col">
+        <div id="receipt" class="receipt-card"></div>
+        <div id="donut" class="viz"></div>
+      </div>
+      <p class="hint">Tip: click a donut slice or a line in the receipt to focus that price tier. Click again to clear.</p>
+    </section>
+
+    <section class="panel notes">
+      <h2>About</h2>
+      <p>Data source: “Boba Shops in the Bay Area (2024)” (Kaggle). This page aggregates by price tier ($–$$$$). Controls let you filter by city and switch between raw counts and percentages. The two views are linked: selecting a tier highlights it across both.</p>
+    </section>
+  </main>
+
+
+  <script src="js/boba.js"></script>
+</body>
+</html>
