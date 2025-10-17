@@ -151,6 +151,7 @@ function main(){
 
     update();
   });
+
 }
 
 window.addEventListener("DOMContentLoaded", main);

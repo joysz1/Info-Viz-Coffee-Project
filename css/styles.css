@@ -64,3 +64,7 @@ svg{width:100%;height:100%}
 
 /* Footer */
 .foot{color:var(--muted);margin:24px 0 34px}
+
+.axis {
+    font: 12px sans-serif;
+}
