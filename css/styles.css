@@ -89,5 +89,194 @@ svg{width:100%;height:100%}
     color: black;
 }
 
-.hover-rule { stroke: var(--accent); stroke-width: 2; opacity: 0; }
-.hover-label { fill: var(--ink); font-weight: 700; font-size: 12px; opacity: 0; text-anchor: middle; }
+/* LANDING HERO */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: #3a2f2b url('../assets/landing-hero-bg.png');
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem
+}
+
+.hero-content {
+    position: relative;
+    padding: 2.5rem 3rem;
+    background: #6e5e53;
+    border-radius: 16px;
+}
+
+.hero-title {
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 2rem;
+}
+
+.decor-line {
+    width: 20em;
+    height: .25em;
+    background: #c49a6c;
+    margin: auto;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+.btn {
+    background: #c49a6c;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #a57b53;
+}
+
+.decor {
+    position: absolute;
+}
+
+.tea-leaves-hero {
+    top: 0;
+    right: 0;
+    width: 25%;
+    animation: slideInTopRight 1s forwards;
+}
+
+.mate-hero {
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    animation: slideInBottomLeft 1s forwards;
+}
+
+@keyframes slideInTopRight {
+    0% {
+        opacity: 0;
+        transform: translate(100%, -100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slideInBottomLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100%, 100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+
+/*HOOK SECTION*/
+
+#hook-section {
+    position: relative;
+    height: 100vh;
+    padding: 6rem 20rem;
+    text-align: center;
+    background: #3a2f2b
+}
+
+.intro-text {
+    padding-bottom: 1rem;
+    transition: all 0.6s ease;
+}
+
+#find-out-btn{
+    margin-top: 2rem;
+}
+
+.type-of-caffeine-cards {
+    display: flex;
+    padding-top: 5em;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    overflow: visible;
+}
+
+.type-of-caffeine-cards.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hook-answer {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.hook-answer.visible {
+    opacity: 1;
+}
+
+.card {
+    position: relative;
+    background: #6e5e53;
+    border-radius: 16px;
+    padding-top: 8rem;
+    width: 25rem;
+    height: 30rem;
+    margin: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card-description {
+    position: absolute;
+    bottom: 6rem;
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.card img {
+    height: auto;
+    margin-bottom: 1rem;
+    object-fit: contain;
+
+}
+
+#tea-leaves{
+    width: 90%;
+    margin-top: -50%;
+}
+
+#cao-cao{
+    margin-top: -70%;
+    width: 115%;
+}
+
+#coffee-beans{
+    margin-top: -75%;
+    width: 80%;
+}
+
+.card p {
+    font-size: 1rem;
+}

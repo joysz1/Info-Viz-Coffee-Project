@@ -10,13 +10,68 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <h1>Rise in Boba Shops</h1>
-      <p class="tag">Bay Area, California • 2024</p>
-    </div>
-  </header>
+
+    <section id="landing-hero" class="hero-section">
+
+        <img src="assets/black-tea-leaves.png" class="decor tea-leaves-hero">
+        <img src="assets/mate.png" class="decor mate-hero">
+
+        <div class="overlay">
+            <div class="hero-content">
+                <h1 class="hero-title title">The Culture of Caffeine</h1>
+                <div class="decor-line"></div>
+                <h2 class="hero-subtitle subtitle">How the World Runs on Caffeine</h2>
+                <a class="hero-btn btn">Learn More ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="hook-section" class="section">
+        <div class="intro-text title">
+            <h1>What do college students, sailors in the 18th century, and Mayan priests all have in common?</h1>
+            <button id="find-out-btn" class="btn">Find Out</button>
+        </div>
+
+        <div class="type-of-caffeine-cards hidden">
+            <div class="card">
+                <img src="assets/tea-leaves.png" alt="Tea Leaves" id="tea-leaves">
+                <div class ="card-description">
+                    <h2>Tea</h2>
+                    <p>18th century sailors would often consume hot black tea mixed with sugar and rum.</p>
+                    <p>Tea contains ~40 mg of caffeine per cup.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/coffee-beans.png" alt="Coffee Beans" id="coffee-beans">
+                <div class ="card-description">
+                    <h2>Coffee</h2>
+                    <p> Coffee is one of the most popular sources of caffeine amongst college students</p>
+                    <p>Coffee contains ~95 mg of caffeine per cup.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/cao-cao.png" alt="Cacao Beans" id="cao-cao">
+                <div class ="card-description">
+                    <h2>Cacao</h2>
+                    <p>For the Ancient Maya, cacao was an extremely valuable commodity for trade.</p>
+                    <p>Cacao contains ~20 mg of caffeine per serving.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hook-answer">
+            <h1> Caffeine!</h1>
+        </div>
+    </section>
+
+
+    <header class="hero">
+        <div class="wrap">
+          <h1>Rise in Boba Shops</h1>
+          <p class="tag">Bay Area, California • 2024</p>
+        </div>
+    </header>
 
   <main class="wrap">
     <section class="panel controls">
@@ -121,5 +176,6 @@
   <script src="js/coffeeBelt.js"></script>
   <script src="js/caffeine.js"></script>
   <script src="js/main.js"></script>
+    <script src="js/introduction.js"></script>
 </body>
 </html>
