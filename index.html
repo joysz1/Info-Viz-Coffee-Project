@@ -60,11 +60,29 @@
           <h2>About</h2>
           <p>Data source: World Bank Group (2025). GDP per capita from 2024 based on current US dollar value. Note: Ethiopia had no data for 2024, so GDP is calculated from 2022.</p>
       </section>
+
+      <header class="hero">
+          <div class="wrap">
+              <h1>Global Coffee Bean Exports</h1>
+          </div>
+      </header>
+
+      <section class="panel gdp">
+          <div id="exportMap"></div>
+      </section>
+
+      <section class="panel notes">
+          <h2>About</h2>
+          <p>Data source: World Integrated Trade Solution (2023). Exports are in 1000USD. Countries in black had no avaliable data.</p>
+      </section>
   </main>
 
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
 
   <script src="js/boba.js"></script>
   <script src="js/gdp.js"></script>
+  <script src="js/coffeeBelt.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
