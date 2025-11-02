@@ -88,3 +88,6 @@ svg{width:100%;height:100%}
     font: 12px sans-serif;
     color: black;
 }
+
+.hover-rule { stroke: var(--accent); stroke-width: 2; opacity: 0; }
+.hover-label { fill: var(--ink); font-weight: 700; font-size: 12px; opacity: 0; text-anchor: middle; }

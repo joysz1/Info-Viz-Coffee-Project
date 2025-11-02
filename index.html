@@ -61,6 +61,42 @@
           <p>Data source: World Bank Group (2025). GDP per capita from 2024 based on current US dollar value. Note: Ethiopia had no data for 2024, so GDP is calculated from 2022.</p>
       </section>
 
+
+      <header class="hero">
+          <div class="wrap">
+              <h1>Average Caffeine Content per Drink</h1>
+          </div>
+      </header>
+      <section class="panel controls">
+          <div class="control-group">
+              <label>Show</label>
+              <select id="caff-topn">
+                  <option value="25">Top 25</option>
+                  <option value="50">Top 50</option>
+                  <option value="100">Top 100</option>
+                  <option value="9999">All</option>
+              </select>
+          </div>
+          <div class="control-group">
+              <label>Search</label>
+              <input id="caff-search" placeholder="Type a drink name…" />
+          </div>
+      </section>
+
+
+      <section class="panel caffeine">
+          <div id="caffeine-chart" class="viz"></div>
+      </section>
+
+      <section class="panel notes">
+          <h2>About</h2>
+          <p>Data source: <a href="https://www.kaggle.com/datasets/heitornunes/caffeine-content-of-drinks" target="_blank">
+              Caffeine Content of Drinks (Kaggle)
+          </a>. This chart shows the average caffeine content (mg) per drink type, using data from major coffee and energy drink brands.
+          </p>
+      </section>
+
+
       <header class="hero">
           <div class="wrap">
               <h1>Global Coffee Bean Exports</h1>
@@ -83,6 +119,7 @@
   <script src="js/boba.js"></script>
   <script src="js/gdp.js"></script>
   <script src="js/coffeeBelt.js"></script>
+  <script src="js/caffeine.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
