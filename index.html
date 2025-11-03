@@ -28,6 +28,7 @@
         </div>
     </section>
 
+
     <section id="hook-section" class="section">
         <div class="intro-text title">
             <h1>What do college students, sailors in the 18th century, and Mayan priests all have in common?</h1>
@@ -64,6 +65,122 @@
             <h1> Caffeine!</h1>
         </div>
     </section>
+    <section class="story-text">
+        Across centuries and continents, humans have turned to <strong>caffeine</strong>, in tea, coffee, and cacao,
+        for energy, ritual, and comfort. But how did this small molecule come to dominate cultures worldwide? To understand caffeine’s hold on modern life, we first look back.
+        From chemistry labs to coffee houses, here’s how caffeine evolved into a <strong>global phenomenon</strong>.
+    </section>
+
+    <main class="wrap">
+
+    <header class="hero">
+        <div class="wrap">
+            <h1>Evolution of Caffeine — Story Timeline</h1>
+        </div>
+    </header>
+
+    <section class="panel tlw">
+        <div class="tlw-wrap">
+            <div class="tlw-left">
+                <svg id="tlw-svg"></svg>
+            </div>
+
+            <div class="tlw-right" id="tlw-slides">
+            </div>
+        </div>
+
+        <div class="tlw-controls">
+            <button id="tlw-prev" aria-label="Previous">↑ Prev</button>
+            <button id="tlw-next" aria-label="Next">↓ Next</button>
+        </div>
+    </section>
+    <section class="story-text">
+        As coffee spread across empires and oceans, it became more than a drink: it became a
+        <strong>trade network</strong>. Today, much of the world’s caffeine supply traces back to a narrow equatorial
+        region known as the <strong>Coffee Belt</strong>.
+    </section>
+
+    <header class="hero">
+        <div class="wrap">
+            <h1>Global Coffee Bean Exports</h1>
+        </div>
+    </header>
+
+    <section class="panel gdp">
+        <div id="exportMap"></div>
+    </section>
+
+    <section class="panel notes">
+        <h2>About</h2>
+        <p>Data source: World Integrated Trade Solution (2023). Exports are in 1000USD. Countries in black had no avaliable data.</p>
+    </section>
+    <section class="story-text">
+        Yet, while coffee drives billions in global revenue, many of the regions producing it remain
+        <strong>economically disadvantaged</strong>. Let’s see what this looks like through GDP data.
+    </section>
+    <header class="hero">
+        <div class="wrap">
+            <h1>GDP Per Capita From Top Coffee Exporters</h1>
+        </div>
+    </header>
+
+    <section class="panel gdp">
+        <div id="gdpChart"></div>
+    </section>
+
+    <section class="panel notes">
+        <h2>About</h2>
+        <p>Data source: World Bank Group (2025). GDP per capita from 2024 based on current US dollar value. Note: Ethiopia had no data for 2024, so GDP is calculated from 2022.</p>
+    </section>
+    <section class="story-text">
+        As coffee globalized, so did innovation. Our quest for <strong>stronger, faster energy</strong> gave rise to instant coffee,
+        energy drinks, and cold brew, redefining what a “dose” of caffeine means.
+    </section>
+
+    <header class="hero">
+        <div class="wrap">
+            <h1>Average Caffeine Content per Drink</h1>
+        </div>
+    </header>
+    <section class="panel controls">
+        <div class="control-group">
+            <label>Show</label>
+            <select id="caff-topn">
+                <option value="25">Top 25</option>
+                <option value="50">Top 50</option>
+                <option value="100">Top 100</option>
+                <option value="9999">All</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Search</label>
+            <input id="caff-search" placeholder="Type a drink name…" />
+        </div>
+    </section>
+
+
+    <section class="panel caffeine">
+        <div id="caffeine-chart" class="viz"></div>
+    </section>
+
+    <section class="panel notes">
+        <h2>About</h2>
+        <p>Data source: <a href="https://www.kaggle.com/datasets/heitornunes/caffeine-content-of-drinks" target="_blank">
+            Caffeine Content of Drinks (Kaggle)
+        </a>. This chart shows the average caffeine content (mg) per drink type, using data from major coffee and energy drink brands.
+        </p>
+    </section>
+
+    <section class="story-text">
+        Caffeine continues to evolve. In California, a new chapter has begun, one shaped by <strong>flavor, identity, and social culture</strong>.
+        Welcome to the era of <strong>boba</strong>.
+    </section>
+
+
+
+
+
+
 
 
     <header class="hero">
@@ -101,71 +218,15 @@
       <p>Data source: “Boba Shops in the Bay Area (2024)” (Kaggle). This page aggregates by price tier ($–$$$$). Controls let you filter by city and switch between raw counts and percentages. The two views are linked: selecting a tier highlights it across both.</p>
     </section>
 
-      <header class="hero">
-          <div class="wrap">
-              <h1>GDP Per Capita From Top Coffee Exporters</h1>
-          </div>
-      </header>
-
-      <section class="panel gdp">
-          <div id="gdpChart"></div>
-      </section>
-
-      <section class="panel notes">
-          <h2>About</h2>
-          <p>Data source: World Bank Group (2025). GDP per capita from 2024 based on current US dollar value. Note: Ethiopia had no data for 2024, so GDP is calculated from 2022.</p>
+      <section class="story-text">
+          From the first chemist’s flask to your neighborhood café, caffeine mirrors humanity itself,
+          <strong>curious, restless, and always adapting.</strong> From globalization to science to colonialism, next time you get your caffeine fix take a second to appreciate all that it took to get to you!
       </section>
 
 
-      <header class="hero">
-          <div class="wrap">
-              <h1>Average Caffeine Content per Drink</h1>
-          </div>
-      </header>
-      <section class="panel controls">
-          <div class="control-group">
-              <label>Show</label>
-              <select id="caff-topn">
-                  <option value="25">Top 25</option>
-                  <option value="50">Top 50</option>
-                  <option value="100">Top 100</option>
-                  <option value="9999">All</option>
-              </select>
-          </div>
-          <div class="control-group">
-              <label>Search</label>
-              <input id="caff-search" placeholder="Type a drink name…" />
-          </div>
-      </section>
 
 
-      <section class="panel caffeine">
-          <div id="caffeine-chart" class="viz"></div>
-      </section>
 
-      <section class="panel notes">
-          <h2>About</h2>
-          <p>Data source: <a href="https://www.kaggle.com/datasets/heitornunes/caffeine-content-of-drinks" target="_blank">
-              Caffeine Content of Drinks (Kaggle)
-          </a>. This chart shows the average caffeine content (mg) per drink type, using data from major coffee and energy drink brands.
-          </p>
-      </section>
-
-
-      <header class="hero">
-          <div class="wrap">
-              <h1>Global Coffee Bean Exports</h1>
-          </div>
-      </header>
-
-      <section class="panel gdp">
-          <div id="exportMap"></div>
-      </section>
-
-      <section class="panel notes">
-          <h2>About</h2>
-          <p>Data source: World Integrated Trade Solution (2023). Exports are in 1000USD. Countries in black had no avaliable data.</p>
-      </section>
   </main>
 
   <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -177,5 +238,7 @@
   <script src="js/caffeine.js"></script>
   <script src="js/main.js"></script>
     <script src="js/introduction.js"></script>
+    <script src="js/timeline.js"></script>
+
 </body>
 </html>
