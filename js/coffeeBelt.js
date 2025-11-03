@@ -82,17 +82,16 @@ class CoffeeBelt {
             .attr("height", rectHeight)
             .attr("fill", "rgba(255, 0, 0, 0.2)")
             .attr("stroke", "black")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 0.5)
             .attr("fill", "url(#diagonalHatch)")
             .attr("pointer-events", "none");
 
         vis.svg.append("rect")
             .attr("x", 2)
-            .attr("y", startingCord[1] - 20)
+            .attr("y", startingCord[1] - 18)
             .attr("width", 120)
             .attr("height", 18)
-            .attr("fill", "white")
-            .attr("opacity", 0.7);
+            .attr("fill", "black")
 
         vis.svg.append("text")
             .attr("x", 5)
@@ -101,7 +100,47 @@ class CoffeeBelt {
             .attr("font-size", "14px")
             .attr("font-weight", "bold")
             .attr("font-family", "Playfair Display")
-            .attr("fill", "black");
+            .attr("fill", "lightgrey");
+
+        vis.legend = vis.svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", `translate(${vis.width - vis.margin.left * 9}, ${vis.height - 80})`);
+
+        vis.colorScale = d3.scaleSequential()
+            .interpolator(d3.interpolateRgb('white', 'rgb(110, 65, 0)'))
+            .domain([
+                Math.log(1),
+                Math.log(d3.max(vis.data, d => d.TradeValue))
+            ]);
+
+        let color = 0;
+        let rectLength = vis.width / 60;
+        let steps = 10;
+        for (let i = 0; i < steps; i++) {
+            vis.legend.append('rect')
+                .attr('x', i * rectLength)
+                .attr('y', 0)
+                .attr('width', rectLength)
+                .attr('height', vis.width / 20)
+                .attr('fill', vis.colorScale(Math.log(color)));
+            console.log(vis.colorScale(color));
+            console.log(color)
+            color += d3.max(vis.data, d => d.TradeValue) / 9;
+
+            vis.legendMin = vis.legend.append("text")
+                .attr("class", "legend-text")
+                .attr("x", 0)
+                .attr("y", vis.width / 20 + 15)
+                .attr("text-anchor", "start")
+                .text("0");
+
+            vis.legendMax = vis.legend.append("text")
+                .attr("class", "legend-text")
+                .attr("x", (vis.width / 20) * 4)
+                .attr("y", vis.width / 20 + 15)
+                .attr("text-anchor", "end")
+                .text(d3.max(vis.data, d => d.TradeValue));
+        }
 
         vis.wrangleData()
     }
@@ -120,17 +159,10 @@ class CoffeeBelt {
     updateData() {
         let vis = this;
 
-        let colorScale = d3.scaleSequential()
-            .interpolator(d3.interpolateRgb('white', 'rgb(110, 65, 0)'))
-            .domain([
-                Math.log(1),
-                Math.log(d3.max(vis.data, d => d.TradeValue))
-            ]);
-
         vis.countries
             .attr('fill', d => {
                 if (Number.isFinite(vis.countryValues[d.properties.name])) {
-                    return colorScale(Math.log(vis.countryValues[d.properties.name]));
+                    return vis.colorScale(Math.log(vis.countryValues[d.properties.name]));
                 } else return 'black'
         })
             .on('mouseover', function (event, d) {
