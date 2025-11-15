@@ -21,12 +21,25 @@ class CoffeeBelt {
             .attr('transform', `translate(${vis.margin.left}, ${vis.margin.top})`);
 
         vis.projection = d3.geoMercator()
-            .fitSize([vis.width, vis.height], topojson.feature(vis.mapData, vis.mapData.objects.countries));
+            .scale(1)
+            .translate([0, 0]);
+
+// compute bounds based only on non-Antarctica features
+        let geo = topojson.feature(vis.mapData, vis.mapData.objects.countries);
+        let filtered = geo.features.filter(d => d.properties.name !== "Antarctica");
+
+        vis.projection.fitSize([vis.width, vis.height], { type: "FeatureCollection", features: filtered });
+
+// Now restrict visible area to remove the bottom
+        vis.projection.clipExtent([[0, 0], [vis.width, vis.height]]);
 
         vis.path = d3.geoPath()
             .projection(vis.projection);
 
-        vis.world = topojson.feature(vis.mapData, vis.mapData.objects.countries).features;
+        vis.world = topojson
+            .feature(vis.mapData, vis.mapData.objects.countries)
+            .features
+            .filter(d => d.properties.name !== "Antarctica");
 
         console.log(vis.mapData.objects);
 
@@ -60,7 +73,8 @@ class CoffeeBelt {
             .append("path")
             .attr("d", "M0,0 l8,8")
             .attr("stroke", "black")
-            .attr("stroke-width", 1);
+            .attr("stroke-width", 1)
+            .attr("opacity", "0.3");
 
         let startingLat = 30;
         let startingLng = -135;
@@ -104,7 +118,7 @@ class CoffeeBelt {
 
         vis.legend = vis.svg.append("g")
             .attr("class", "legend")
-            .attr("transform", `translate(${vis.width - vis.margin.left * 9}, ${vis.height - 80})`);
+            .attr("transform", `translate(0, ${vis.height - 80})`);
 
         vis.colorScale = d3.scaleSequential()
             .interpolator(d3.interpolateRgb('white', 'rgb(110, 65, 0)'))
