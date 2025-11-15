@@ -153,7 +153,7 @@ class CoffeeBelt {
                 .attr("x", (vis.width / 20) * 4)
                 .attr("y", vis.width / 20 + 15)
                 .attr("text-anchor", "end")
-                .text(d3.max(vis.data, d => d.TradeValue));
+                .text((d3.max(vis.data, d => d.TradeValue) * 1000).toLocaleString('en', {useGrouping:true}));
         }
 
         vis.wrangleData()
@@ -191,7 +191,7 @@ class CoffeeBelt {
                     .html(`
                     <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
                          <h2>${d.properties.name}<h5>  
-                         <h3>Exports: ${vis.countryValues[d.properties.name]}<h6>       
+                         <h3>Exports: ${(vis.countryValues[d.properties.name] * 1000).toLocaleString('en', {useGrouping:true})}<h6>       
                     </div>`);
             }})
         .on('mouseout', function (event, d) {
