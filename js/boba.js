@@ -1,5 +1,11 @@
 // Dual view: receipt summary <-> donut chart of price tiers
 const PRICE_ORDER = ["$", "$$", "$$$", "$$$$"];
+const PRICE_RANGES = {
+    "$": "Under $10",
+    "$$": "$11 - $30",
+    "$$$": "$31 - $60",
+    "$$$$": "Over $61"
+};
 const COLORS = d3.scaleOrdinal()
   .domain(PRICE_ORDER)
   .range(["#a8d9a0", "#71d1d8", "#f4a24b", "#d0c4b9"]); // soft palette inspired by mock
@@ -47,6 +53,21 @@ function main(){
     const rWrap = R.append("div").attr("id","r-rows");
     R.append("div").attr("class","r-line");
     const rFoot = R.append("div").attr("class","r-row").html(`<span>Total</span><strong id="totalTxt"></strong>`);
+      R.append("div").attr("class","r-line");
+      const rLegend = R.append("div").attr("class", "r-legend");
+      rLegend.append("div")
+          .attr("class", "r-legend-title")
+          .text("$ Guide");
+
+      PRICE_ORDER.forEach(p => {
+          const row = rLegend.append("div").attr("class", "r-legend-row");
+          row.append("span")
+              .attr("class", "r-legend-tier")
+              .text(p);
+          row.append("span")
+              .attr("class", "r-legend-range")
+              .text(PRICE_RANGES[p] || "");
+      });
 
     // Donut
     const svg = d3.select("#donut").append("svg");
@@ -55,8 +76,6 @@ function main(){
     const g = svg.append("g").attr("transform", `translate(${cx},${cy})`);
     const arc = d3.arc().innerRadius(inner).outerRadius(outer).cornerRadius(10);
     const pie = d3.pie().sort(null).value(d => d.value);
-
-    const tip = d3.select("body").append("div").attr("class","tooltip").style("opacity",0);
 
     const legend = d3.select(".panel.boba").append("div").attr("class","price-legend");
     PRICE_ORDER.forEach(p => {
@@ -109,15 +128,6 @@ function main(){
         .attr("fill", d => COLORS(d.data.key))
         .attr("d", arc)
         .style("cursor","pointer")
-        .on("mousemove", (event,d) => {
-          const raw = summary.arr.find(x => x.price===d.data.key);
-          const pct = d3.format(".1%")(raw.percent);
-          tip.style("opacity",1)
-             .html(`<strong>${d.data.key}</strong><br/>${raw.count} shops<br/>${pct}`)
-             .style("left", (event.pageX+12)+"px")
-             .style("top",  (event.pageY-28)+"px");
-        })
-        .on("mouseleave", () => tip.style("opacity",0))
         .on("click", (_,d) => { activeTier = (activeTier===d.data.key? null : d.data.key); update(true); })
         .merge(arcs)
           .transition().duration(400)
