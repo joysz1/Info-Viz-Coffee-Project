@@ -20,7 +20,7 @@ h2{margin:0 0 8px 0;font-size:20px}
 p{line-height:1.5}
 
 /* Panels */
-.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.panel{background:var(--card);position: relative;z-index: 1;border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .panel.controls{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
 .control-group{display:flex;gap:10px;align-items:center}
 .control-group label{color:var(--muted);font-size:13px}
@@ -126,7 +126,7 @@ svg{width:100%;height:100%}
 .hero-content {
     position: relative;
     padding: 2.5rem 3rem;
-    background: #6e5e53;
+    background: #69564E;
     border-radius: 16px;
 }
 
@@ -212,12 +212,13 @@ svg{width:100%;height:100%}
 }
 
 .intro-text {
-    padding-bottom: 1rem;
     transition: all 0.6s ease;
 }
 
 #find-out-btn{
     margin-top: 2rem;
+    margin-bottom: 2rem;
+    z-index: 10;
 }
 
 .card-text{
@@ -251,7 +252,7 @@ svg{width:100%;height:100%}
 
 .card {
     position: relative;
-    background: #6e5e53;
+    background: #69564E;
     border-radius: 16px;
     padding-top: 8rem;
     width: 25rem;
@@ -267,6 +268,7 @@ svg{width:100%;height:100%}
     width: 100%;
     text-align: center;
     padding: 1.5rem;
+    transform: translateY(20px);
 }
 
 .card img {
@@ -295,6 +297,23 @@ svg{width:100%;height:100%}
     font-size: 1rem;
 }
 
+.vector-beans-hook {
+    left: 0;
+    top: 20%;
+}
+
+.vector-leaves-hook {
+    top: 0;
+    right: 0;
+}
+
+.vector-line-hook {
+    left: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
 /* Timeline */
 /* Tight timeline container */
 .viz-tight {
@@ -302,6 +321,12 @@ svg{width:100%;height:100%}
     height: 260px;
     margin: 0 auto;
     width: 100%;
+}
+
+.background-timeline {
+    left: 0;
+    z-index: 0;
+    transform: translateY(80px);
 }
 
 /* Story window layout */
@@ -404,6 +429,7 @@ svg{width:100%;height:100%}
 a:visited {
     color: #7cc7ff;
 }
+
 /* ENDING */
 #ending-hero {
     position: relative;
@@ -457,4 +483,17 @@ a:visited {
     top: 0;
     left: 0;
     width: 15%;
+}
+
+.boba-1-boba {
+    left: 5%;
+}
+
+.boba-2-boba {
+    right: 5%;
+    transform: translateY(200px);
+}
+
+.arrow-exports {
+    left: 5%;
 }
