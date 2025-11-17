@@ -1,5 +1,7 @@
 # Info-Viz-Coffee-Project
 
+Site: https://joysz1.github.io/Info-Viz-Coffee-Project/
+
 Our directory is split into our assets, CSS, data files, javscript files, and the index.html page.
 
 Our 'assets' folder is where we have all the images that are used in the page. The timeline assets are split into their own folder, while the rest of the folder includes the other image assets.
