@@ -1,10 +1,10 @@
 // Dual view: receipt summary <-> donut chart of price tiers
 const PRICE_ORDER = ["$", "$$", "$$$", "$$$$"];
 const PRICE_RANGES = {
-    "$": "Under $10",
-    "$$": "$11 - $30",
-    "$$$": "$31 - $60",
-    "$$$$": "Over $61"
+    "$": "Under $6",
+    "$$": "$11 - $7-9",
+    "$$$": "$31 - $10-12",
+    "$$$$": "Over $13"
 };
 const COLORS = d3.scaleOrdinal()
   .domain(PRICE_ORDER)
